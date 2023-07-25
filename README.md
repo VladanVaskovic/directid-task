@@ -1,46 +1,114 @@
-# Getting Started with Create React App
+# DirectID Exercise - ReactJS Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A user-friendly page to showcase a list of bank account transactions with sorting functionality, developed using ReactJS and Tailwind CSS.
 
-## Available Scripts
+## Table of Contents
+- [Overview](#overview)
+- [Design Decisions](#design-decisions)
+- [Best Practices](#best-practices)
+- [External Libraries](#external-libraries)
+- [Improvements and Enhancements](#improvements-and-enhancements)
+- [Setup and Usage](#setup-and-usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+The User Transactions Page is a ReactJS application that displays a list of bank account transactions for a customer persona named "Apollo Carter." The transactions are fetched from a mock API response and presented in a table format, including transaction date, category, debit, credit, and balance details. Users can also sort transactions based on date and category.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Design Decisions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Component Architecture:
+- The project follows a component-based architecture, breaking down the user transactions page into smaller, reusable components.
+- Components are designed using Tailwind CSS classes to style and layout the elements effectively.
 
-### `npm test`
+### Data Flow:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Data is fetched from the mock API in the `fetchTransactions` function within `api.ts`.
+- The top-level component `App` manages the state for transactions, balance, and identifiers using React hooks.
+- Transaction data is passed down to the `TransactionsTable` component via props.
 
-### `npm run build`
+### Responsive Design:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Tailwind CSS utilities are used to create a responsive layout that adjusts well on different screen sizes, ensuring a mobile-friendly experience.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Sorting Functionality:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Sorting functionality is implemented in the `TransactionsTable` component to allow users to sort transactions based on date and category.
+- Tailwind CSS classes are used to style the sorting indicators and table headers.
 
-### `npm run eject`
+### Pagination Approach:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- The `PaginationComponent` handles pagination for the `TransactionsTable`, displaying a fixed number of transactions per page.
+- Tailwind CSS classes are utilized to style the pagination controls for a consistent look and feel.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Best Practices
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Coding Standards:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- The project adheres to coding standards for TypeScript, React, and Tailwind CSS.
+- Proper indentation, meaningful class names, and consistent naming conventions are followed throughout the codebase.
 
-## Learn More
+### State Management:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React hooks are used for state management, maintaining a concise and maintainable codebase.
+- State is managed at the appropriate level of the component tree to minimize unnecessary re-renders.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Code Organization:
+
+- The codebase is organized into separate directories for components, services, and types, following a modular structure.
+- Tailwind CSS classes are applied directly to components' JSX, making it easy to manage styles alongside the components.
+
+### Error Handling:
+
+- Error handling is implemented in the `fetchData` function in `App.tsx` using try-catch blocks to handle potential API fetch errors.
+- Meaningful error messages are provided to users if any errors occur during data fetching.
+
+### Modular Components:
+
+- Components are designed to be reusable and easily extensible, enabling smooth integration into other parts of the application.
+- Tailwind CSS utility classes allow for quick styling changes and flexibility in component reusability.
+
+## External Libraries
+
+### Tailwind CSS:
+- The project utilizes Tailwind CSS as the primary CSS framework for styling the user interface.
+- Tailwind's utility-first approach is used to design and layout components efficiently.
+
+### rc-pagination:
+- The rc-pagination module is used to handle pagination functionality in the TransactionsTable component.
+- It provides pagination controls for the table, allowing users to navigate through multiple pages of transactions.
+- Custom rendering of pagination arrows is implemented using the itemRender prop.
+- The module is lightweight and provides smooth pagination for a seamless user experience.
+
+## Improvements and Enhancements
+
+### UI/UX Considerations:
+- The UI design is enhanced by leveraging Tailwind CSS utility classes for consistent styling, colors, and spacing throughout the application.
+- Typography choices are made using Tailwind CSS text styles to ensure readability and visual appeal.
+
+### Testing Strategy:
+- The project includes unit tests for critical components and business logic using testing libraries like Jest and React Testing Library.
+- Additional test cases could be added to further improve test coverage, ensuring a robust and bug-free application.
+
+## Setup and Usage
+
+To run the project locally, follow these steps:
+1. Clone the repository:
+```
+git clone https://github.com/VladanVaskovic/directid-task.git
+```
+2. Install dependencies:
+```
+cd directid-task
+npm install
+```
+3. Start the development server:
+```
+npm start
+```
+The application will be accessible at `http://localhost:3000` in your web browser.
+
+## Contributing
+
+Contributions to this project are welcome. If you find any issues or want to add new features, feel free to open a pull request or raise an issue in the repository.
