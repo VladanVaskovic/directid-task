@@ -1,0 +1,25 @@
+/* top-left border-radius */
+table thead:first-child th:first-child {
+  @apply rounded-tl-md rounded-bl-md pl-10 min-w-[300px];
+}
+
+/* top-right border-radius */
+table thead:first-child th:last-child {
+  @apply rounded-tr-md rounded-br-md;
+}
+
+table tr td:first-child {
+  @apply pl-8 rounded-tl-sm rounded-bl-sm;
+}
+
+table tr td:last-child {
+  @apply rounded-tr-sm rounded-br-sm;
+}
+
+table tr td {
+  @apply font-medium py-4 px-0;
+}
+
+th {
+  @apply py-4 px-0 text-lg text-main-color text-left min-w-[150px];
+}

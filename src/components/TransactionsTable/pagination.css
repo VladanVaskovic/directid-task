@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css);
+
+.pagination-data {
+  @apply p-0 m-0;
+}
+
+.pagination-data li {
+  @apply list-none;
+}
+
+.rc-pagination {
+  @apply flex items-center justify-end;
+}
+
+.rc-pagination-item,
+.rc-pagination-prev,
+.rc-pagination-jump-prev,
+.rc-pagination-jump-next {
+  @apply mr-2 w-8;
+}
+
+.rc-pagination-total-text {
+  @apply mr-3;
+  @apply cursor-default;
+}
+
+.rc-pagination-jump-next button,
+.rc-pagination-jump-prev button {
+  @apply bg-transparent border-none cursor-pointer;
+  @apply text-black;
+}
+
+.rc-pagination-jump-next button:after,
+.rc-pagination-jump-prev button:after {
+  @apply block truncate;
+  content: "...";
+}
+
+.rc-pagination-item,
+.rc-pagination-prev,
+.rc-pagination-next,
+.rc-pagination-total-text {
+  @apply h-auto bg-transparent border-none cursor-pointer;
+}
+
+.rc-pagination-item a,
+.rc-pagination-item button,
+.rc-pagination-prev a,
+.rc-pagination-prev button,
+.rc-pagination-next a,
+.rc-pagination-next button,
+.rc-pagination-total-text a,
+.rc-pagination-total-text button {
+  @apply p-2 h-auto rounded-lg border-2 border-transparent bg-transparent flex items-center justify-center text-sm font-medium text-black transition duration-300;
+}
+
+.rc-pagination-item.rc-pagination-item-active a,
+.rc-pagination-item.rc-pagination-item-active a:hover,
+.rc-pagination-prev.rc-pagination-item-active a,
+.rc-pagination-prev.rc-pagination-item-active a:hover,
+.rc-pagination-next.rc-pagination-item-active a,
+.rc-pagination-next.rc-pagination-item-active a:hover,
+.rc-pagination-total-text.rc-pagination-item-active a,
+.rc-pagination-total-text.rc-pagination-item-active a:hover {
+  @apply bg-th-color border-th-color text-black font-bold;
+}
+
+.rc-pagination-item a:hover,
+.rc-pagination-item button:hover,
+.rc-pagination-prev a:hover,
+.rc-pagination-prev button:hover,
+.rc-pagination-next a:hover,
+.rc-pagination-next button:hover,
+.rc-pagination-total-text a:hover,
+.rc-pagination-total-text button:hover {
+  @apply bg-gray-200 border-gray-200;
+}
+
+input {
+  @apply w-8 mx-2 border-b border-gray-600 outline-none text-center;
+}
+
+.rc-pagination-options-quick-jumper {
+  @apply ml-4 text-black;
+}
+
+.rc-pagination-simple-pager {
+  @apply text-black;
+}
+
+@media (max-width: 540px) {
+  .rc-pagination {
+    @apply justify-start;
+  }
+}
