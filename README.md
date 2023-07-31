@@ -85,6 +85,14 @@ The primary file that requires unit testing is `TransactionsTable.tsx`. This fil
 - Custom rendering of pagination arrows is implemented using the itemRender prop.
 - The module is lightweight and provides smooth pagination for a seamless user experience.
 
+### date-fns
+
+[date-fns](https://date-fns.org/) is a popular JavaScript library for manipulating and formatting dates. It provides a set of simple and functional utilities for handling various date-related operations. In this project, I have used `date-fns` to format the transaction dates in a user-friendly format and perform date-related calculations.
+
+### currency-symbol-map
+
+I used [currency-symbol-map](https://www.npmjs.com/package/currency-symbol-map) to provide a mapping of currency codes to currency symbols. It simplifies the process of displaying currency symbols based on currency codes, which is especially useful when working with international transactions or multi-currency applications.
+
 ## Improvements and Enhancements
 
 ### UI/UX Considerations:
