@@ -44,7 +44,9 @@ The User Transactions Page is a ReactJS application that displays a list of bank
 
 ### Unit Test Coverage
 
-The primary file that requires unit testing is `TransactionsTable.tsx`. This file houses the core logic for managing the user transactions table, including sorting, pagination, and data presentation. Writing comprehensive unit tests for this component is essential to ensure its correctness and reliability in handling user transactions data.
+- The primary file that requires unit testing is `TransactionsTable.tsx`. 
+- This file houses the core logic for managing the user transactions table, including sorting, pagination, and data presentation.
+- Writing comprehensive unit tests for this component is essential to ensure its correctness and reliability in handling user transactions data.
 
 ## Best Practices
 
@@ -80,18 +82,21 @@ The primary file that requires unit testing is `TransactionsTable.tsx`. This fil
 - Tailwind's utility-first approach is used to design and layout components efficiently.
 
 ### rc-pagination:
-- The rc-pagination module is used to handle pagination functionality in the TransactionsTable component.
+- The [rc-pagination](https://www.npmjs.com/package/rc-pagination) module is used to handle pagination functionality in the TransactionsTable component.
 - It provides pagination controls for the table, allowing users to navigate through multiple pages of transactions.
 - Custom rendering of pagination arrows is implemented using the itemRender prop.
 - The module is lightweight and provides smooth pagination for a seamless user experience.
 
 ### date-fns
 
-[date-fns](https://date-fns.org/) is a popular JavaScript library for manipulating and formatting dates. It provides a set of simple and functional utilities for handling various date-related operations. In this project, I have used `date-fns` to format the transaction dates in a user-friendly format and perform date-related calculations.
+- [date-fns](https://date-fns.org/) is a popular JavaScript library for manipulating and formatting dates. 
+- It provides a set of simple and functional utilities for handling various date-related operations. 
+- In this project, I have used `date-fns` to format the transaction dates in a user-friendly format and perform date-related calculations.
 
 ### currency-symbol-map
 
-I used [currency-symbol-map](https://www.npmjs.com/package/currency-symbol-map) to provide a mapping of currency codes to currency symbols. It simplifies the process of displaying currency symbols based on currency codes, which is especially useful when working with international transactions or multi-currency applications.
+- I used [currency-symbol-map](https://www.npmjs.com/package/currency-symbol-map) to provide a mapping of currency codes to currency symbols. 
+- It simplifies the process of displaying currency symbols based on currency codes, which is especially useful when working with international transactions or multi-currency applications.
 
 ## Improvements and Enhancements
 
