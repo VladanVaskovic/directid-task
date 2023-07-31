@@ -1,17 +1,21 @@
 import React from "react";
+import getSymbolFromCurrency from "currency-symbol-map";
+import { format } from "date-fns";
 import { Transaction } from "../../../types";
 
 interface TableBodyProps {
+  currencyCode: string;
   showData: Transaction[];
 }
 
-const TableBody: React.FC<TableBodyProps> = ({ showData }) => {
+const TableBody: React.FC<TableBodyProps> = ({ currencyCode, showData }) => {
   return (
     <tbody>
       {showData.map((transaction: Transaction) => {
-        const bookingDate = transaction.bookingDate.split("T")[0];
-        const [year, month, day] = bookingDate.split("-");
-        const formattedDate = `${day}/${month}/${year}`;
+        const formattedDate = format(
+          new Date(transaction.bookingDate),
+          "dd/MM/yyyy"
+        );
         const isDebit = transaction.creditDebitIndicator === "Debit";
         const isCredit = transaction.creditDebitIndicator === "Credit";
 
@@ -24,11 +28,11 @@ const TableBody: React.FC<TableBodyProps> = ({ showData }) => {
             <td>{formattedDate}</td>
             <td>{transaction.enrichedData.category.name}</td>
             <td>
-              {isDebit ? "£" : ""}
+              {isDebit ? getSymbolFromCurrency(currencyCode) : ""}
               {isDebit ? transaction.amount : "-"}
             </td>
             <td>
-              {isCredit ? "£" : ""}
+              {isCredit ? getSymbolFromCurrency(currencyCode) : ""}
               {isCredit ? transaction.amount : "-"}
             </td>
             <td>{transaction.balance?.toFixed(2)}</td>

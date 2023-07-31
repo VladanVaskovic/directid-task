@@ -42,6 +42,10 @@ The User Transactions Page is a ReactJS application that displays a list of bank
 - The `PaginationComponent` handles pagination for the `TransactionsTable`, displaying a fixed number of transactions per page.
 - Tailwind CSS classes are utilized to style the pagination controls for a consistent look and feel.
 
+### Unit Test Coverage
+
+The primary file that requires unit testing is `TransactionsTable.tsx`. This file houses the core logic for managing the user transactions table, including sorting, pagination, and data presentation. Writing comprehensive unit tests for this component is essential to ensure its correctness and reliability in handling user transactions data.
+
 ## Best Practices
 
 ### Coding Standards:

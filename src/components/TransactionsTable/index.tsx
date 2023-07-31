@@ -4,14 +4,15 @@ import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import { Transaction } from "../../types";
 import "./transactionsTable.css";
-import "./pagination.css";
 
 interface TransactionsTableProps {
+  currencyCode: string;
   transactions: Transaction[];
   setTransactions: React.Dispatch<React.SetStateAction<Transaction[]>>;
 }
 
 const TransactionsTable: React.FC<TransactionsTableProps> = ({
+  currencyCode,
   transactions,
   setTransactions,
 }) => {
@@ -108,7 +109,7 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
             sortOptions={sortOptions}
             onSortOptionChange={handleSortOptionChange}
           />
-          <TableBody showData={showData} />
+          <TableBody currencyCode={currencyCode} showData={showData} />
         </table>
       </div>
       <div className="pagination-container mt-8 flex justify-center">

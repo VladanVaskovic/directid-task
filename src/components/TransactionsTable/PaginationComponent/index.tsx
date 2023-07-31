@@ -1,5 +1,6 @@
 import React from "react";
 import Pagination from "rc-pagination";
+import "./pagination.css";
 
 interface PaginationComponentProps {
   totalItems: number;

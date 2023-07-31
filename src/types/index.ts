@@ -31,13 +31,15 @@ export interface Transaction {
 }
 
 export interface Identifiers {
-    accountNumber: string
-    bankCode: string
-    iban: string | null
-    secondaryIdentification: string | null
+    accountNumber?: string
+    bankCode?: string
+    iban?: string | null
+    secondaryIdentification?: string | null
 }
 
 export interface TransactionsData {
+    holderName: string;
+    currencyCode: string;
     balance: number;
     transactions: Transaction[];
     identifiers: Identifiers;

@@ -7,53 +7,54 @@ import Header from "./components/Header";
 
 function App() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [holderName, setHolderName] = useState<string>("");
+  const [currencyCode, setCurrencyCode] = useState<string>("");
   const [balance, setBalance] = useState<number>(0);
-  const [identifiers, setIdentifiers] = useState<Identifiers | undefined>(
-    undefined
-  );
+  const [identifiers, setIdentifiers] = useState<Identifiers>({});
 
   useEffect(() => {
-    const fetchData = async () => {
+    (async () => {
       try {
         const data: TransactionsData = await fetchTransactions();
         const {
+          holderName: accountHolderName,
+          currencyCode: currencyUnit,
           balance: initialBalance,
           transactions: fetchedTransactions,
           identifiers: dataIdentifiers,
         } = data;
 
-        const updatedTransactions = fetchedTransactions.map(
-          (item: Transaction, index: number) => {
-            const prevBalance =
-              index > 0
-                ? fetchedTransactions[index - 1].balance
-                : initialBalance;
-            const current =
-              prevBalance !== undefined
-                ? prevBalance +
-                  (item.creditDebitIndicator === "Credit"
-                    ? -item.amount
-                    : item.amount)
-                : initialBalance;
-            return { ...item, balance: current };
-          }
-        );
+        let tempBalance = initialBalance;
+        const updatedTransactions = fetchedTransactions.map((item, index) => {
+          const updated = { ...item, balance: tempBalance };
+          tempBalance =
+            item.creditDebitIndicator === "Debit"
+              ? tempBalance + item.amount
+              : tempBalance - item.amount;
+          return updated;
+        });
 
+        setHolderName(accountHolderName);
+        setCurrencyCode(currencyUnit);
         setBalance(initialBalance);
         setIdentifiers(dataIdentifiers);
         setTransactions(updatedTransactions);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        alert(error);
       }
-    };
-
-    fetchData();
+    })();
   }, []);
 
   return (
     <div className="py-12 px-4 lg:p-24">
-      <Header balance={balance} identifiers={identifiers} />
+      <Header
+        holderName={holderName}
+        currencyCode={currencyCode}
+        balance={balance}
+        identifiers={identifiers}
+      />
       <TransactionsTable
+        currencyCode={currencyCode}
         transactions={transactions}
         setTransactions={setTransactions}
       />

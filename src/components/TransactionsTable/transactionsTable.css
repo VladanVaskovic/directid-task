@@ -9,7 +9,7 @@ table thead:first-child th:last-child {
 }
 
 table tr td:first-child {
-  @apply pl-8 rounded-tl-sm rounded-bl-sm;
+  @apply pl-8 pr-8 rounded-tl-sm rounded-bl-sm;
 }
 
 table tr td:last-child {
